@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2c3e50</color>
+    <color name="colorPrimaryDark">#2c3e50</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFF</color>
+    <color name="darkblue">#2c3e50</color>
+    <color name="lightblue">#2980b9</color>
+    <color name="overlay">#00FFFFFF</color>
+    <color name="black">#000</color>
+    <color name="darkgray">#616A6B</color>
+    <color name="lightgrayview">#36979797</color>
+    <color name="slidercolour">#12000000</color>
+
+
+</resources>

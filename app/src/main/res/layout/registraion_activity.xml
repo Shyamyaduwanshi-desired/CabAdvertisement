@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="@drawable/screenimglogin">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/iconlogin"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cab Advertisment"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp">
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardBackgroundColor="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ScrollView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content">
+                         <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:layout_marginTop="0dp">
+                             <android.support.v7.widget.CardView
+                                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                 android:layout_gravity="center"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 card_view:cardCornerRadius="20dp"
+                                 card_view:cardBackgroundColor="@color/white">
+                                 <LinearLayout
+                                     android:layout_width="match_parent"
+                                     android:layout_height="match_parent"
+                                     android:orientation="vertical">
+                                     <TextView
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:text="Company Details"
+                                         android:textColor="@color/darkblue"
+                                         android:textSize="16dp"
+                                         android:layout_marginTop="20dp"
+                                         android:drawableLeft="@drawable/ic_company_second_black"
+                                         android:paddingRight="35dp"
+                                         android:drawablePadding="15dp"
+                                         android:layout_gravity="center"
+                                         android:textStyle="bold"/>
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="30dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Comapany Name"
+                                         android:textColor="@color/darkblue"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textCapSentences"
+                                         android:imeOptions="actionNext"
+                                         android:drawableLeft="@drawable/ic_company"
+                                         android:drawablePadding="15dp"/>
+
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Office Address icon"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textCapSentences"
+                                         android:textColor="@color/darkblue"
+                                         android:imeOptions="actionNext"
+                                         android:drawableLeft="@drawable/ic_internet"
+                                         android:drawablePadding="15dp"/>
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Office Contact Detail"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textCapSentences"
+                                         android:textColor="@color/darkblue"
+                                         android:imeOptions="actionNext"
+                                         android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
+                                         android:drawablePadding="15dp"/>
+
+
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Area of Business"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textCapSentences"
+                                         android:textColor="@color/darkblue"
+                                         android:imeOptions="actionNext"
+                                         android:drawableLeft="@drawable/ic_placeholder"
+                                         android:drawablePadding="15dp"/>
+
+
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Password"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textPassword"
+                                         android:textColor="@color/darkblue"
+                                         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                                         android:drawablePadding="15dp"
+                                         android:imeOptions="actionNext"/>
+
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Confirm Password"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textPassword"
+                                         android:textColor="@color/darkblue"
+                                         android:imeOptions="actionNext"
+                                         android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                                         android:drawablePadding="15dp"/>
+
+                                     <TextView
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:text="Contact Person Details"
+                                         android:textColor="@color/darkblue"
+                                         android:textSize="16dp"
+                                         android:layout_marginTop="20dp"
+                                         android:drawableLeft="@drawable/avtar_black"
+                                         android:paddingRight="35dp"
+                                         android:textStyle="bold"
+                                         android:drawablePadding="15dp"
+                                         android:layout_gravity="center"/>
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="30dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Full Name"
+                                         android:textColor="@color/darkblue"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="textCapSentences"
+                                         android:drawablePadding="15dp"
+                                         android:drawableLeft="@drawable/ic_avatar"
+                                         android:imeOptions="actionNext" />
+
+                                     <EditText
+                                         android:layout_width="match_parent"
+                                         android:layout_height="40dp"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Mobile Number"
+                                         android:paddingLeft="20dp"
+                                         android:inputType="number"
+                                         android:textColor="@color/darkblue"
+                                         android:drawablePadding="15dp"
+                                         android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
+                                         android:imeOptions="actionNext"/>
+
+                                     <Button
+                                         android:id="@+id/signup_button_id"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="35dp"
+                                         android:background="@drawable/get_started_button"
+                                         android:layout_marginLeft="13dp"
+                                         android:layout_marginRight="13dp"
+                                         android:layout_marginTop="30dp"
+                                         android:text="Sign Up"
+                                         android:textAllCaps="false"
+                                         android:textColor="@color/white" />
+                                     <LinearLayout
+                                         android:layout_width="match_parent"
+                                         android:layout_height="wrap_content"
+                                         android:orientation="horizontal"
+                                         android:layout_marginTop="20dp"
+                                         android:layout_marginBottom="100dp"
+                                         android:layout_marginLeft="60dp">
+                                         <TextView
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content"
+                                             android:text="Already have an account ?"
+                                             android:textSize="17dp"/>
+                                         <TextView
+                                             android:id="@+id/login_text_id"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:text="Log In"
+                                             android:layout_marginLeft="5dp"
+                                             android:textSize="17dp"
+                                             android:textStyle="bold"
+                                             android:textColor="@color/darkblue"/>
+                                     </LinearLayout>
+                                 </LinearLayout>
+                             </android.support.v7.widget.CardView>
+                         </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     </LinearLayout>
+               </ScrollView>
+
+
+
+
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>

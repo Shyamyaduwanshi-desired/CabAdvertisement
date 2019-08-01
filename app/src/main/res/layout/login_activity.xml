@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="vertical"
+        android:background="@drawable/screenimglogin">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/iconlogin"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cab Advertisment"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp">
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card_view:cardCornerRadius="20dp"
+            card_view:cardBackgroundColor="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/circle_button"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/logimimgbutton"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:gravity="center"
+                    android:textColor="@color/darkblue"
+                    android:textSize="15dp"
+                    android:layout_marginTop="5dp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_background"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="Enter Mobile Number"
+                    android:textColor="@color/darkblue"
+                    android:paddingLeft="20dp"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
+                    android:drawablePadding="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_background"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="Enter Password"
+                    android:paddingLeft="20dp"
+                    android:inputType="textPassword"
+                    android:textColor="@color/darkblue"
+                    android:imeOptions="actionNext"
+                    android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                    android:drawablePadding="15dp"/>
+                <TextView
+                    android:id="@+id/forgot_text_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password ?"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/darkblue"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    />
+                <Button
+                    android:id="@+id/login_button_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/get_started_button"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Log In"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="60dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Don't have an account ?"
+                        android:textSize="17dp"/>
+                    <TextView
+                        android:id="@+id/signin_text_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sign Up"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="17dp"
+                        android:textColor="@color/darkblue"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_avatar"
+            android:title="My Profile" />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/notification"
+            android:title="Notification" />
+        <item
+            android:id="@+id/nav_campaigns"
+            android:icon="@drawable/share"
+            android:title="My Campaigns" />
+        <item
+            android:id="@+id/nav_weekly"
+            android:icon="@drawable/report"
+            android:title="Weekly Analysis Report" />
+        <item
+            android:id="@+id/nav_liveactivity"
+            android:icon="@drawable/location"
+            android:title="Live Activity Monitor" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/support"
+            android:title="Help &amp; Support" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/collaboration"
+            android:title="Share &amp; Invite" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/consultingmessage"
+            android:title="Rate &amp; Review" />
+        <item
+            android:id="@+id/nav_renew"
+            android:icon="@drawable/ic_package"
+            android:title="Renew Package" />
+
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Log Out" />
+    </group>
+</menu>
