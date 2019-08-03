@@ -12,5 +12,9 @@
     <color name="lightgrayview">#36979797</color>
     <color name="slidercolour">#12000000</color>
 
+    <color name="plan_1_color">#12000000</color>
+    <color name="plan_2_color">#12000000</color>
+    <color name="plan_3_color">#12000000</color>
+
 
 </resources>

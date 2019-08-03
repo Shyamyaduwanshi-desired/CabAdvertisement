@@ -1,0 +1,3 @@
+<resources>
+    <integer name="register_field_max_len">30</integer>
+</resources>

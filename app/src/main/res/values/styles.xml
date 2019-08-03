@@ -22,5 +22,8 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_from_top</item>
+        <item name="android:windowExitAnimation">@anim/slide_in_top</item>
+    </style>
 </resources>

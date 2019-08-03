@@ -34,12 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:openDrawer="start">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/screenarea">
-        </FrameLayout>
+        <!--  <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          android:id="@+id/screenarea">
+      </FrameLayout>-->
+        <include layout="@layout/show_map_dashboard" />
+     <!--   <include layout="@layout/activity_dashboard"/>-->
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"

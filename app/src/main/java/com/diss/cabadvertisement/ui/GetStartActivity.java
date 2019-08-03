@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.diss.cabadvertisement.R;
 
 public class GetStartActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class GetStartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GetStartActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
+                Animatoo.animateSlideUp(GetStartActivity.this);
 
             }
         });

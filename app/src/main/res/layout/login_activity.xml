@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -63,31 +64,61 @@
                     android:textSize="15dp"
                     android:layout_marginTop="5dp"
                     android:textStyle="bold"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_view_height"
+            android:background="@drawable/edit_background"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            >
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/ic_phone_iphone_black_24dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    />
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/spin_coun_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    app:ccpDialog_textColor="@color/darkblue"
+                    android:layout_toRightOf="@+id/iv_icon"
+                    app:ccp_showFlag="false"
+                    app:ccp_showNameCode="false"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+
+                    />
 
                 <EditText
+                    android:id="@+id/et_mobile_no"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/edit_background"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="fill_parent"
+                   android:background="@color/white"
                     android:hint="Enter Mobile Number"
                     android:textColor="@color/darkblue"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="5dp"
                     android:inputType="number"
+                    android:maxLength="10"
                     android:imeOptions="actionNext"
-                    android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
-                    android:drawablePadding="15dp"/>
-
+                    android:layout_toRightOf="@+id/spin_coun_code"
+                   />
+</RelativeLayout>
                 <EditText
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/login_view_height"
                     android:background="@drawable/edit_background"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:hint="Enter Password"
                     android:paddingLeft="20dp"
+                    android:maxLength="20"
                     android:inputType="textPassword"
                     android:textColor="@color/darkblue"
                     android:imeOptions="actionNext"

@@ -21,8 +21,8 @@ public class Approval_activity extends AppCompatActivity {
         textapporwal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Approval_activity.this, SubscriptionPlanActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Approval_activity.this, SubscriptionPlanActivity.class);
+//                startActivity(intent);
 
             }
         });

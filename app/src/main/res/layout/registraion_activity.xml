@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -73,8 +74,9 @@
                                          android:layout_gravity="center"
                                          android:textStyle="bold"/>
                                      <EditText
+                                         android:id="@+id/et_company_nm"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="30dp"
                                          android:layout_marginLeft="10dp"
@@ -82,28 +84,32 @@
                                          android:hint="Comapany Name"
                                          android:textColor="@color/darkblue"
                                          android:paddingLeft="20dp"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:inputType="textCapSentences"
                                          android:imeOptions="actionNext"
                                          android:drawableLeft="@drawable/ic_company"
                                          android:drawablePadding="15dp"/>
 
                                      <EditText
+                                         android:id="@+id/et_office_add"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
                                          android:layout_marginRight="10dp"
-                                         android:hint="Office Address icon"
+                                         android:hint="Office Address"
                                          android:paddingLeft="20dp"
                                          android:inputType="textCapSentences"
                                          android:textColor="@color/darkblue"
                                          android:imeOptions="actionNext"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:drawableLeft="@drawable/ic_internet"
                                          android:drawablePadding="15dp"/>
                                      <EditText
+                                         android:id="@+id/et_office_contact"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
@@ -113,13 +119,15 @@
                                          android:inputType="textCapSentences"
                                          android:textColor="@color/darkblue"
                                          android:imeOptions="actionNext"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
                                          android:drawablePadding="15dp"/>
 
 
                                      <EditText
+                                         android:id="@+id/et_area_of_business"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
@@ -129,19 +137,38 @@
                                          android:inputType="textCapSentences"
                                          android:textColor="@color/darkblue"
                                          android:imeOptions="actionNext"
+                                         android:maxLength="@integer/register_field_max_len"
+                                         android:drawableLeft="@drawable/ic_placeholder"
+                                         android:drawablePadding="15dp"/>
+                                     <EditText
+                                         android:id="@+id/et_email"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="@dimen/login_view_height"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="15dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:hint="Email"
+                                         android:paddingLeft="20dp"
+                                         android:maxLength="@integer/register_field_max_len"
+                                         android:inputType="textEmailAddress"
+                                         android:textColor="@color/darkblue"
+                                         android:imeOptions="actionNext"
                                          android:drawableLeft="@drawable/ic_placeholder"
                                          android:drawablePadding="15dp"/>
 
 
                                      <EditText
+                                         android:id="@+id/et_password"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
                                          android:layout_marginRight="10dp"
                                          android:hint="Password"
                                          android:paddingLeft="20dp"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:inputType="textPassword"
                                          android:textColor="@color/darkblue"
                                          android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
@@ -149,13 +176,15 @@
                                          android:imeOptions="actionNext"/>
 
                                      <EditText
+                                         android:id="@+id/et_confirm_pass"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
                                          android:layout_marginRight="10dp"
                                          android:hint="Confirm Password"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:paddingLeft="20dp"
                                          android:inputType="textPassword"
                                          android:textColor="@color/darkblue"
@@ -176,23 +205,69 @@
                                          android:drawablePadding="15dp"
                                          android:layout_gravity="center"/>
                                      <EditText
+                                         android:id="@+id/et_person_nm"
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="30dp"
                                          android:layout_marginLeft="10dp"
                                          android:layout_marginRight="10dp"
                                          android:hint="Full Name"
+                                         android:maxLength="@integer/register_field_max_len"
                                          android:textColor="@color/darkblue"
                                          android:paddingLeft="20dp"
                                          android:inputType="textCapSentences"
                                          android:drawablePadding="15dp"
                                          android:drawableLeft="@drawable/ic_avatar"
                                          android:imeOptions="actionNext" />
-
-                                     <EditText
+                                     <RelativeLayout
                                          android:layout_width="match_parent"
-                                         android:layout_height="40dp"
+                                         android:layout_height="@dimen/login_view_height"
+                                         android:background="@drawable/edit_background"
+                                         android:layout_marginTop="30dp"
+                                         android:layout_marginLeft="10dp"
+                                         android:layout_marginRight="10dp"
+                                         android:padding="5dp"
+                                         >
+                                         <ImageView
+                                             android:id="@+id/iv_icon"
+                                             android:layout_width="30dp"
+                                             android:layout_height="fill_parent"
+                                             android:src="@drawable/ic_phone_iphone_black_24dp"
+                                             android:layout_marginLeft="5dp"
+                                             android:layout_centerVertical="true"
+                                             />
+                                         <com.hbb20.CountryCodePicker
+                                             android:id="@+id/spin_coun_code"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="fill_parent"
+                                             app:ccpDialog_textColor="@color/darkblue"
+                                             android:layout_toRightOf="@+id/iv_icon"
+                                             app:ccp_showFlag="false"
+                                             app:ccp_showNameCode="false"
+                                             android:layout_centerVertical="true"
+                                             android:layout_gravity="center_vertical"
+
+                                             />
+
+                                         <EditText
+                                             android:id="@+id/et_person_phone"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="fill_parent"
+                                             android:background="@color/white"
+                                             android:hint="Mobile Number"
+                                             android:textColor="@color/darkblue"
+                                             android:paddingLeft="5dp"
+                                             android:inputType="number"
+                                             android:maxLength="10"
+                                             android:imeOptions="actionNext"
+                                             android:layout_toRightOf="@+id/spin_coun_code"
+                                             />
+                                     </RelativeLayout>
+                                   <!--  <EditText
+                                         android:id="@+id/et_person_phone"
+                                         android:layout_width="match_parent"
+                                         android:layout_height="@dimen/login_view_height"
                                          android:background="@drawable/edit_background"
                                          android:layout_marginTop="15dp"
                                          android:layout_marginLeft="10dp"
@@ -203,7 +278,7 @@
                                          android:textColor="@color/darkblue"
                                          android:drawablePadding="15dp"
                                          android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
-                                         android:imeOptions="actionNext"/>
+                                         android:imeOptions="actionNext"/>-->
 
                                      <Button
                                          android:id="@+id/signup_button_id"
@@ -217,6 +292,7 @@
                                          android:textAllCaps="false"
                                          android:textColor="@color/white" />
                                      <LinearLayout
+                                         android:id="@+id/ly_login"
                                          android:layout_width="match_parent"
                                          android:layout_height="wrap_content"
                                          android:orientation="horizontal"
