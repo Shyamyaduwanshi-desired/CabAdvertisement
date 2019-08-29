@@ -27,21 +27,23 @@ public class AppData {
 //    public static String noti_url = "https://fcm.googleapis.com/fcm/send";
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
-    public static String image = "";
-    public static String agentID = "";
-
-    public static String AuthUserKey = "Username";
-    public static String AuthUserValue = "Password";
-
-    public static String AuthUserPassKey = "admin";
-    public static String AuthUserPassValue = "admin123";
+    public static final String CURRRENT_CAMPAIGN_ID = "cur_s_id";
+    public static String ONLINE_OFFLINE="online_offline_driver";
+//    public static String image = "";
+//    public static String agentID = "";
+//
+//    public static String AuthUserKey = "Username";
+//    public static String AuthUserValue = "Password";
+//
+//    public static String AuthUserPassKey = "admin";
+//    public static String AuthUserPassValue = "admin123";
 
 
 //    public static final String API_KEY = "c26b952cf256107329b42f97bd9af382";
 //    public static final String API_KEY = "AIzaSyDzdTN8o1eYFEnCOF080AA7LN6GxaH-VLc";
 
     public AppData(Context context) {
-        sharedPref = context.getSharedPreferences("parking_by_vendor", Context.MODE_PRIVATE);
+        sharedPref = context.getSharedPreferences("cab_advertisement", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
 
@@ -49,75 +51,99 @@ public class AppData {
         editor.putString("userID", userID);
         editor.commit();
     }
+    public String getUserID() {
+        return  sharedPref.getString("userID", "NA");
+    }
+
 
     public void setMobile(String mobile) {
         editor.putString("mobile", mobile);
         editor.commit();
     }
+    public String getMobile() {
+        return sharedPref.getString("mobile", "NA");
+    }
+
 
     public void setEmail(String email) {
         editor.putString("email", email);
         editor.commit();
     }
+    public String getEmail() {
+        return sharedPref.getString("email", "NA");
+    }
+
 
     public void setUsername(String username) {
         editor.putString("username", username);
         editor.commit();
     }
-
-    public void setPin(String pin) {
-        editor.putString("pin", pin);
-        editor.commit();
-    }
-
-    public void setProfile(String profile) {
-        editor.putString("profile", profile);
-        editor.commit();
-    }
-
-    public void setGoogleID(String id) {
-        editor.putString("id", id);
-        editor.commit();
-    }
-
-
-    public void setFbID(String fbID) {
-        editor.putString("fbID", fbID);
-        editor.commit();
-    }
-
-    public String getUserID() {
-        return  sharedPref.getString("userID", "NA");
-    }
-
-    public String getMobile() {
-        return sharedPref.getString("mobile", "NA");
-    }
-
-    public String getEmail() {
-        return sharedPref.getString("email", "NA");
-    }
-
     public String getUsername() {
         return sharedPref.getString("username", "NA");
     }
 
-    public String getPin() {
-        return sharedPref.getString("pin", "NA");
+    public String getProfilePic() {
+        return sharedPref.getString("user_profile", "NA");
     }
 
-    public String getProfile() {
-        return sharedPref.getString("profile", "NA");
+    public void setProfilePic(String profileUrl) {
+        editor.putString("user_profile", profileUrl);
+        editor.commit();
     }
 
-    public String getGoogleID() {
-        return sharedPref.getString("id", "NA");
+
+    public void setCompanyNm(String companyNm) {
+        editor.putString("company_name", companyNm);
+        editor.commit();
+    }
+    public String getCompanyNm() {
+        return sharedPref.getString("company_name", "NA");
     }
 
-    public String getFbID() {
-        return sharedPref.getString("fbID", "NA");
+
+    public void setCompanyOfficeAddress(String comOffAddress) {
+        editor.putString("company_office_address", comOffAddress);
+        editor.commit();
     }
 
+    public String getCompanyOfficeAddress() {
+        return sharedPref.getString("company_office_address", "NA");
+    }
+
+    public void setCompanyContactNo(String comContNo) {
+        editor.putString("company_contact_no", comContNo);
+        editor.commit();
+    }
+    public String getCompanyContactNo() {
+        return sharedPref.getString("company_contact_no", "NA");
+    }
+
+    public void setCompanyAreaOfBusiness(String comAreaOfBuss) {
+        editor.putString("company_area_of_business", comAreaOfBuss);
+        editor.commit();
+    }
+    public String getCompanyAreaOfBusiness() {
+        return sharedPref.getString("company_area_of_business", "NA");
+    }
+
+    public void setCurrentCampaignId(String campaignId) {
+        editor.putString(CURRRENT_CAMPAIGN_ID, campaignId);
+        editor.commit();
+
+        //for driver trucking purpose from firebase
+    }
+    public String getCurrentCampaignId() {
+        return sharedPref.getString(CURRRENT_CAMPAIGN_ID, "0");
+    }
+
+    public void setIsOnline(String onlineOffline) {
+        editor.putString(ONLINE_OFFLINE, onlineOffline);
+        editor.commit();
+//        0 =offline   1 =online
+    }
+    public String getIsOnline() {
+        return  sharedPref.getString(ONLINE_OFFLINE, "0");
+    }
 
 
     public void setUserStatus(String usrtype) {
@@ -201,13 +227,14 @@ public class AppData {
 //        }).show();
     }
 
-//2019-06-18 11:17:55 to 18 jun 2019 11:17:55
+    //2019-08-02 09:01:35
+//2019-06-18 11:17:55 to 18 jun
     public String ConvertDate(String indate)
     {
         String formattedDate = null;
         try {
             DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
-            DateFormat targetFormat = new SimpleDateFormat("dd MMMM yyyy hh:mm:ss aa");
+            DateFormat targetFormat = new SimpleDateFormat("dd MMMM");// hh:mm:ss aa
             Date date = originalFormat.parse(indate);
             formattedDate = targetFormat.format(date);
         } catch (ParseException e) {
@@ -215,6 +242,49 @@ public class AppData {
         }
         return formattedDate;
     }
+    //    //2019-06-18 to 18 jun
+    public String ConvertDate01(String indate)
+    {
+        String formattedDate = null;
+        try {
+            DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+            DateFormat targetFormat = new SimpleDateFormat("dd MMMM");
+            Date date = originalFormat.parse(indate);
+            formattedDate = targetFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formattedDate;
+    }
+    //2019-06-18 11:17:55  to  18 June 2019
+    public String ConvertDate02(String indate)
+    {
+        String formattedDate = null;
+        try {
+            DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+            DateFormat targetFormat = new SimpleDateFormat("dd MMMM yyyy");
+            Date date = originalFormat.parse(indate);
+            formattedDate = targetFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return formattedDate;
+    }
+//
+////2019-06-18 11:17:55 to 18 jun 2019 11:17:55
+//    public String ConvertDate(String indate)
+//    {
+//        String formattedDate = null;
+//        try {
+//            DateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+//            DateFormat targetFormat = new SimpleDateFormat("dd MMMM yyyy hh:mm:ss aa");
+//            Date date = originalFormat.parse(indate);
+//            formattedDate = targetFormat.format(date);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return formattedDate;
+//    }
 
 //    //2019-06-18 11:17:55 to 18/06/2019
     public String ConvertDate1(String indate)
@@ -362,4 +432,88 @@ public class AppData {
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+    //save advance data
+    public void setAdvanceData(String planData,String CamNm,String Camobject,String CamDsc,String allimageData,String allLocData,String allimageNm,String allLocNm) {
+        editor.putString("plan_data", planData);
+        editor.putString("cam_nm", CamNm);
+        editor.putString("cam_object", Camobject);
+        editor.putString("cam_dsc", CamDsc);
+        editor.putString("all_image", allimageData);
+        editor.putString("all_location", allLocData);
+        editor.putString("all_image_nm", allimageNm);
+        editor.putString("all_location_nm", allLocNm);
+        editor.commit();
+    }
+
+    public String PlanData()
+    {
+        return sharedPref.getString("plan_data", "NA");
+    }
+    public String CampaingNm()
+    {
+        return sharedPref.getString("cam_nm", "NA");
+    }
+    public String CampaingObj()
+    {
+        return sharedPref.getString("cam_object", "NA");
+    }
+    public String CampaingDsc()
+    {
+        return sharedPref.getString("cam_dsc", "NA");
+    }
+    public String AllImagesData()
+    {
+        return sharedPref.getString("all_image", "NA");
+    }
+    public String AllLocationData()
+    {
+        return sharedPref.getString("all_location", "NA");
+    }
+    public String AllImagesNm()
+    {
+        return sharedPref.getString("all_image_nm", "NA");
+    }
+    public String AllLocationNm()
+    {
+        return sharedPref.getString("all_location_nm", "NA");
+    }
+    public void saveDiscountAmount(String dissAmount) {
+        editor.putString("discount_amount", dissAmount);
+        editor.commit();
+    }
+    public String DiscountAmount()
+    {
+        return sharedPref.getString("discount_amount", "NA");
+    }
+    public void saveCouponId(String couponId) {
+        editor.putString("coupon_id", couponId);
+        editor.commit();
+    }
+    public String CouponId()
+    {
+        return sharedPref.getString("coupon_id", "0");//default=0 in api
+    }
+
+    public String GetCurrentDateTime()
+    {
+        Date today = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+        String dateToStr = format.format(today);
+        System.out.println(dateToStr);
+        return dateToStr;
+    }
+    public String GetCurrentDate()
+    {
+        Date today = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String dateToStr = format.format(today);
+        System.out.println(dateToStr);
+        return dateToStr;
+    }
+
+  /*  public String getUserStatus() {
+        return  sharedPref.getString("user_status", "NA");
+//   0 = not verify otp &  1 = not approve by admin &  2 = approved by admin
+    }*/
+
 }

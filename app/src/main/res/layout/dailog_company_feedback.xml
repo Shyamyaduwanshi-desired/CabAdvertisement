@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_10"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate Our App"
+            android:textColor="@color/black"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textSize="17dp"/>
+        <RelativeLayout
+            android:id="@+id/rl_close"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+
+            >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/cancel"
+            android:layout_alignParentRight="true"
+            />
+        </RelativeLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgrayview"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+
+       />
+    <!--android:theme="@style/RatingBar"-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tap a star to rate"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_5"/>
+    <EditText
+        android:id="@+id/et_feedback_dsc"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/edit_background"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="Leave Review(Optional)"
+        android:paddingLeft="20dp"
+        android:maxLength="150"
+        android:singleLine="false"
+        android:textSize="@dimen/margin_15"
+        android:paddingBottom="70dp"/>
+    <Button
+        android:id="@+id/bt_submit_feedbac"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/get_started_button"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Send"
+        android:textSize="@dimen/margin_15"
+        android:textAllCaps="false"
+
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/margin_10"
+        />
+</LinearLayout>

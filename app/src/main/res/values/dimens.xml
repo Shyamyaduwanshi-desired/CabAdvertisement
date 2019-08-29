@@ -8,5 +8,16 @@
 
     <dimen name="login_view_height">50dp</dimen>
     <dimen name="margin_5">5dp</dimen>
+    <dimen name="compaign_text_width">130dp</dimen>
+    <dimen name="compaign_text_width1">100dp</dimen>
+    <dimen name="anaylysis_text_width">130dp</dimen>
+
+
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+
+    <dimen name="wallet_edit_height">40dp</dimen>
+    <dimen name="title_txt_size">16sp</dimen>
    <!-- <dimen name="register_field_max_len">30dp</dimen>-->
 </resources>

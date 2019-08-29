@@ -84,9 +84,10 @@
                                             android:layout_marginTop="8dp"
                                             android:layout_marginLeft="10dp">
                                             <TextView
+                                                android:id="@+id/tv_coupon_code"
                                                 android:layout_width="90dp"
                                                 android:layout_height="30dp"
-                                                android:text="Apayfeb"
+                                                android:text=""
                                                 android:textAlignment="center"
                                                 android:gravity="center"
                                                 android:textColor="@color/lightblue"/>
@@ -99,19 +100,24 @@
                                             android:layout_marginTop="10dp"
                                             android:layout_marginLeft="10dp">
                                             <TextView
+                                                android:id="@+id/tv_title"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="Get 20% cash back for use"
+                                                android:text=""
                                                 android:textColor="@color/black"/>
+                                            <!--Get 20% cash back for use-->
                                             <TextView
+                                                android:id="@+id/tv_dsc"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
-                                                android:text="Lorem Ipsum is that it has a more_or_less normal distribution of letters,as opposed to using Content here"
+                                                android:text=""
                                                 android:layout_marginTop="5dp"
                                                 />
+                                           <!-- Lorem Ipsum is that it has a more_or_less normal distribution of letters,as opposed to using Content here-->
                                         </LinearLayout>
                                     </LinearLayout>
                                     <TextView
+                                        android:id="@+id/tv_coupon_apply"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Apply"

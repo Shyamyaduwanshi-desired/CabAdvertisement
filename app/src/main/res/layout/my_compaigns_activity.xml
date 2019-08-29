@@ -7,12 +7,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
     <android.support.v7.widget.CardView
         android:id="@+id/cv"
         android:layout_width="match_parent"
-        android:layout_height="55dp">
+        android:layout_height="55dp"
+        app:cardCornerRadius="0dp"
+        >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,100 +39,26 @@
       </android.support.v7.widget.CardView>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="10dp">
-            <LinearLayout
-                android:id="@+id/mycampaigns_linear_id"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/tv_no_data"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14dp"
+                android:textColor="#000"
+                android:visibility="gone"
+                android:text="Data not found"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_my_compaign"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/edit_background"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:textSize="14dp"
-                        android:textColor="#000"
-                        android:text="Name of Campaign"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="25dp"
-                        android:textSize="14dp"
-                        android:text="INR 10000"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:textSize="14dp"
-                        android:textColor="#000"
-                        android:text="Validity"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="25dp"
-                        android:textSize="14dp"
-                        android:text="(1 Jun - 30 Jun)"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="15dp"
-                        android:textSize="14dp"
-                        android:textColor="#000"
-                        android:text="Number of Cab: 10"/>
-
-                </LinearLayout>
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/edit_background"
-        android:orientation="vertical">
-        <android.support.v7.widget.RecyclerView
-           android:id="@+id/recyclerview_recommend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            />
-    </LinearLayout>-->
+
 </RelativeLayout>

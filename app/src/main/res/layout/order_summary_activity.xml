@@ -63,7 +63,8 @@
                     />
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
+
                     android:layout_marginTop="20dp"
                     android:background="@drawable/order_summary_background"
                     android:orientation="vertical">
@@ -71,91 +72,102 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Name of Package:-"/>
                         <TextView
+                            android:id="@+id/tv_plan_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
+
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="Clasic"/>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Time Period:-"/>
                         <TextView
+                            android:id="@+id/tv_plan_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
+
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="1 Month"/>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Number of Cab:-"/>
                         <TextView
+                            android:id="@+id/tv_no_cab"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="10"/>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
-                            android:text="Nmae of Campaign"/>
+                            android:text="Name of Campaign"/>
                         <TextView
+                            android:id="@+id/tv_compaign_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
+
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="Name"/>
@@ -167,53 +179,55 @@
                 <LinearLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/order_summary_background"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2">
+                        android:layout_marginTop="10dp"
+                        android:padding="@dimen/margin_5"
+                        >
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_loc_name"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="15dp"
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Location for Brand"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_toRightOf="@+id/tv_loc_name"
+                            android:id="@+id/tv_location_name"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
+                        android:paddingLeft="@dimen/margin_5"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="Lorem"/>
-                    </LinearLayout>
+                    </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Objective of Campaign"/>
                         <TextView
+                            android:id="@+id/tv_compaign_object"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="Lorem"/>
@@ -221,55 +235,58 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Details of Campaign"/>
                         <TextView
+                            android:id="@+id/tv_compaign_dsc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="Lorem"/>
                     </LinearLayout>
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2">
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="@dimen/margin_5"
+                       >
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tv_upload"
+                            android:layout_width="90dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginTop="15dp"
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
                             android:text="Files Upload:-"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_toRightOf="@+id/tv_upload"
+                            android:id="@+id/tv_file_name"
+                            android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:paddingLeft="@dimen/margin_5"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="AED 27.00"/>
-                    </LinearLayout>
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/wrap"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/order_summary_background"
                     android:orientation="vertical">
@@ -277,22 +294,22 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
-                            android:text="Ammount:-"/>
+                            android:text="Amount:-"/>
                         <TextView
+                            android:id="@+id/tv_plan_amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="1000"/>
@@ -300,12 +317,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:weightSum="3">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
@@ -314,7 +332,6 @@
                               android:layout_width="20dp"
                               android:layout_height="20dp"
                               android:src="@drawable/ic_discount"
-                              android:layout_marginTop="18dp"
                               android:layout_marginLeft="150dp"/>
 
                         <TextView
@@ -322,7 +339,7 @@
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
+
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:layout_gravity="center"
@@ -342,22 +359,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:weightSum="2">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginTop="15dp"
+
                             android:layout_marginLeft="15dp"
                             android:textSize="14dp"
                             android:textColor="#000"
-                            android:text="Total Ammount:-"/>
+                            android:text="Total Amount:-"/>
                         <TextView
+                            android:id="@+id/tv_total_amount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:layout_marginTop="10dp"
                             android:layout_marginRight="25dp"
                             android:textSize="14dp"
                             android:text="-------"/>

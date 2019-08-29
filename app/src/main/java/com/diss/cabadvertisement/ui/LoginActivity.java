@@ -2,6 +2,7 @@ package com.diss.cabadvertisement.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +16,10 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.diss.cabadvertisement.R;
 import com.diss.cabadvertisement.ui.presenter.LoginPresenter;
 import com.diss.cabadvertisement.ui.util.AppData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.hbb20.CountryCodePicker;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginPresenter.Login{
@@ -92,12 +97,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
         else {
-            if(appdata.isNetworkConnected(this)){
-                Log.e("",""+("+"+countryCodeValue+sMobi)+""+Password);
-                presenter.LoginUser("+"+countryCodeValue+sMobi, Password);
-            }else {
-                appdata.ShowNewAlert(this,"Please connect to internet");
-            }
+            GetRegistration();
+//            if(appdata.isNetworkConnected(LoginActivity.this)){
+//                Log.e("",""+("+"+countryCodeValue+sMobi)+""+Password);
+//                presenter.LoginUser("+"+countryCodeValue+sMobi, Password);
+//            }else {
+//                appdata.ShowNewAlert(LoginActivity.this,"Please connect to internet");
+//            }
+
         }
     }
 
@@ -120,10 +127,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     case "2":// approved by admin
                    intent = new Intent(LoginActivity.this, SubscriptionPlanActivity.class);
                         break;
-                    case "3":// not subscription done by user
-                        intent = new Intent(LoginActivity.this, SubscriptionPlanActivity.class);
-                        break;
-                    case "4"://subscription done by user
+//                    case "3":// not subscription done by user
+//                        intent = new Intent(LoginActivity.this, SubscriptionPlanActivity.class);
+//                        break;
+                    case "3"://subscription done by user
                         intent = new Intent(LoginActivity.this, DashboardActivity.class);
                         break;
                 }
@@ -147,5 +154,33 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void fail(String response) {
         appdata.ShowNewAlert(this,response);
+    }
+
+    //for location
+
+    public void GetRegistration()
+    {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+// Get the Instance ID token//
+                        String token = task.getResult().getToken();
+//                        String msg = getString(R.string.fcm_token, token);
+                        Log.d("", "shyam fcm token= "+token);
+//
+                        if(appdata.isNetworkConnected(LoginActivity.this)){
+                            Log.e("",""+("+"+countryCodeValue+sMobi)+""+Password);
+                            presenter.LoginUser("+"+countryCodeValue+sMobi, Password,token);
+                        }else {
+                            appdata.ShowNewAlert(LoginActivity.this,"Please connect to internet");
+                        }
+                    }
+                });
+
     }
 }

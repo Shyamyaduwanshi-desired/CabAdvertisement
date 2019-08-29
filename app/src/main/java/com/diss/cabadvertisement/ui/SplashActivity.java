@@ -79,10 +79,10 @@ public class SplashActivity extends AppCompatActivity {
 //                            case "2":// approved by admin but not subsription done
 //                                intent = new Intent(SplashActivity.this, SubscriptionPlanActivity.class);
 //                                break;
-                            case "3":// not subscription done by user
-                                intent = new Intent(SplashActivity.this, SubscriptionPlanActivity.class);
-                                break;
-                            case "4"://subscription done by user
+//                            case "3":// not subscription done by user
+//                                intent = new Intent(SplashActivity.this, SubscriptionPlanActivity.class);
+//                                break;
+                            case "3"://subscription done by user
                                 intent = new Intent(SplashActivity.this, DashboardActivity.class);
                                 break;
                         }

@@ -22,6 +22,7 @@
             android:textColor="@color/white"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +35,7 @@
             card_view:cardCornerRadius="20dp"
             card_view:cardBackgroundColor="@color/white">
 
-            <ScrollView
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -61,6 +62,7 @@
                             android:textSize="18dp" />
 
                         <EditText
+                            android:id="@+id/et_compaign"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginLeft="20dp"
@@ -70,7 +72,7 @@
                             android:hint="Name of Compaign"
                             android:imeOptions="actionNext"
                             android:inputType="textCapSentences"
-                            android:paddingLeft="20dp"
+                            android:paddingLeft="10dp"
                             android:textColor="@color/darkblue" />
 
                         <TextView
@@ -85,29 +87,75 @@
                             android:text="Location for brand exposure"
                             android:imeOptions="actionNext"
                             android:gravity="center_vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
                             android:textSize="19dp"
                             android:visibility="gone"
                             />
-                        <TextView
-                            android:id="@+id/addclickbutton_id"
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/edit_background"
+                            android:visibility="gone"
+                            >
+                            <EditText
+                                android:id="@+id/et_loction_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:hint="Compaign Location name"
+                                android:background="@null"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/darkblue"
+                                android:layout_toLeftOf="@+id/rl_add_location"
+                                android:editable="false"
+                                />
+                        <RelativeLayout
+                            android:id="@+id/rl_add_location"
+                            android:layout_width="50dp"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:layout_alignParentRight="true"
+                            >
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/add"
+                                android:layout_centerVertical="true"
+                                />
+                        </RelativeLayout>
+                          <!--  <TextView
+                                android:id="@+id/addclickbutton_id"
+                                android:l50dpayout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:drawableRight="@drawable/add"
+                                android:text="Location for brand exposure"
+                                android:imeOptions="actionNext"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:textSize="19dp"
+                                />-->
+
+                        </RelativeLayout>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_location_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="15dp"
                             android:layout_marginRight="20dp"
-                            android:background="@drawable/edit_background"
-                            android:drawableRight="@drawable/add"
-                            android:text="Location for brand exposure"
-                            android:imeOptions="actionNext"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
-                            android:textSize="19dp"
-                        />
+
+                            />
 
                         <EditText
+                            android:id="@+id/et_object_compaign"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginLeft="20dp"
@@ -116,11 +164,13 @@
                             android:background="@drawable/edit_background"
                             android:hint="Objective of Campaign"
                             android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:paddingLeft="20dp"
+                            android:inputType="text"
+                            android:maxLength="@integer/register_field_max_len"
+                            android:paddingLeft="10dp"
                             android:textColor="@color/darkblue" />
 
                         <EditText
+                            android:id="@+id/et_detail_compaign"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
                             android:layout_marginLeft="20dp"
@@ -129,8 +179,9 @@
                             android:background="@drawable/edit_background"
                             android:hint="Details of Campaign"
                             android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:paddingLeft="20dp"
+                            android:inputType="text"
+                            android:maxLength="@integer/register_field_max_len"
+                            android:paddingLeft="10dp"
                             android:textColor="@color/darkblue" />
 
                         <TextView
@@ -144,7 +195,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_height="150dp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="20dp"
@@ -152,19 +203,31 @@
                             android:background="@drawable/camera_details_upload"
                             android:orientation="vertical">
 
+                            <TextView
+                                android:id="@+id/tv_load_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center"
+                                android:text="Files Upload" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_image_list"
+                                android:layout_width="match_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="center_vertical|left"
+                                android:layout_margin="@dimen/margin_5"
+
+                                />
+
                             <ImageView
                                 android:id="@+id/firstcamera_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="80dp"
                                 android:layout_gravity="center"
                                 android:padding="20dp"
+                                android:visibility="gone"
                                 android:src="@drawable/ic_photo_camera" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Files Upload" />
                         </LinearLayout>
 
                         <Button
@@ -181,7 +244,7 @@
                             android:layout_marginBottom="50dp"/>
                     </LinearLayout>
                 </LinearLayout>
-            </ScrollView>
+            </android.support.v4.widget.NestedScrollView>
         </android.support.v7.widget.CardView>
     </LinearLayout>
 </RelativeLayout>

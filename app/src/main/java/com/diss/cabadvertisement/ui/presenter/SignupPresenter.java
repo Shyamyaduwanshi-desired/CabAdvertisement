@@ -43,7 +43,7 @@ public class SignupPresenter {
         void fail(String response);
     }
 
-    public void SignUpCompany(SignupBean bean) {
+    public void SignUpCompany(SignupBean bean) {//, final String deviceToken
         final ProgressDialog progress = new ProgressDialog(context);
         progress.setMessage("Please Wait..");
         progress.setCancelable(false);
@@ -59,6 +59,10 @@ public class SignupPresenter {
                 .addBodyParameter("confirm_password", bean.getConfirm_password())
                 .addBodyParameter("full_name", bean.getFull_name())
                 .addBodyParameter("mobile_no", bean.getMobile_no())
+
+//                .addBodyParameter("device_token", deviceToken)
+//                .addBodyParameter("device_type", "android")
+
                 .addHeaders("Username","admin")
                 .addHeaders("Password","admin123")
                 .setPriority(Priority.MEDIUM)

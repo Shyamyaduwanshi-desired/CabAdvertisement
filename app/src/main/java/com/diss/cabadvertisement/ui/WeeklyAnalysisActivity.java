@@ -22,7 +22,7 @@ public class WeeklyAnalysisActivity extends AppCompatActivity {
         weeklylinear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WeeklyAnalysisActivity.this, WeeklyDetailsActivity.class);
+                Intent intent = new Intent(WeeklyAnalysisActivity.this, WeeklyAnalysisDetailsActivity.class);
                 startActivity(intent);
 
             }

@@ -78,6 +78,7 @@
                     android:layout_marginRight="30dp"
                     android:paddingLeft="20dp"
                     android:text="Payment Mathed"
+                    android:textColor="@color/black"
                     android:imeOptions="actionNext"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/ic_wallet"
@@ -89,8 +90,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    >
+                   <!-- android:visibility="gone"-->
                     <TextView
+                        android:id="@+id/tv_internetbanking"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edit_background"
@@ -98,29 +103,36 @@
                         android:layout_marginRight="30dp"
                         android:paddingLeft="20dp"
                         android:text="Netbanking"
+                        android:textColor="@color/black"
                         android:imeOptions="actionNext"
                         android:gravity="center_vertical"
                         android:drawablePadding="15dp"/>
 
                     <TextView
+                        android:id="@+id/tv_credit_debit"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edit_background"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
+                        android:layout_marginTop="5dp"
                         android:paddingLeft="20dp"
+                        android:textColor="@color/black"
                         android:text="Crredit or Debit Card"
                         android:imeOptions="actionNext"
                         android:gravity="center_vertical"
                         android:drawablePadding="15dp"/>
                     <TextView
+                        android:id="@+id/tv_cod"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edit_background"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:paddingLeft="20dp"
+                        android:layout_marginTop="5dp"
                         android:text="Cash On Delivery"
+                        android:textColor="@color/black"
                         android:imeOptions="actionNext"
                         android:gravity="center_vertical"
                         android:drawablePadding="15dp"/>

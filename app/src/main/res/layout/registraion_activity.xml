@@ -116,10 +116,10 @@
                                          android:layout_marginRight="10dp"
                                          android:hint="Office Contact Detail"
                                          android:paddingLeft="20dp"
-                                         android:inputType="textCapSentences"
+                                         android:inputType="phone"
                                          android:textColor="@color/darkblue"
                                          android:imeOptions="actionNext"
-                                         android:maxLength="@integer/register_field_max_len"
+                                         android:maxLength="@integer/mobile_max_len"
                                          android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
                                          android:drawablePadding="15dp"/>
 

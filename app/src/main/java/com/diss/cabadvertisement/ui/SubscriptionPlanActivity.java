@@ -17,6 +17,8 @@ import com.diss.cabadvertisement.ui.model.SubPlanBean;
 import com.diss.cabadvertisement.ui.presenter.LoginPresenter;
 import com.diss.cabadvertisement.ui.presenter.SubscriptionPlanPresenter;
 import com.diss.cabadvertisement.ui.util.AppData;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,12 +88,12 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements View.
 
     @Override
     public void error(String response) {
-
+        appdata.ShowNewAlert(this,response);
     }
 
     @Override
     public void fail(String response) {
-
+        appdata.ShowNewAlert(this,response);
     }
 
     public void SetAdapter()
@@ -104,8 +106,17 @@ public class SubscriptionPlanActivity extends AppCompatActivity implements View.
 //adapter click
     @Override
     public void onClick(int position) {
+        String planid=arSubPlan.get(position).getPlanId();
+                     /*   Gson gson = new Gson();
+                String listString = gson.toJson(
+                        arSubPlan.get(position),
+                        new TypeToken<ArrayList<SubPlanBean>>() {}.getType());*/
 
+        Gson gson = new Gson();
+        String jsonObj = gson.toJson(arSubPlan.get(position));
         Intent intent = new Intent(SubscriptionPlanActivity.this, DetailsActivity.class);
+        intent.putExtra("plan_id",arSubPlan.get(position).getPlanId());
+        intent.putExtra("object_data",jsonObj);
         startActivity(intent);
 
     }

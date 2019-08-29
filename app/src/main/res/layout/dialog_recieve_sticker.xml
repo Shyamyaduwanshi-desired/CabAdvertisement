@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout
+          xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+           
+            >
+            <TextView
+                android:id="@+id/tv_loc_txt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Campaign Stickers"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="@dimen/margin_10"
+               />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightgrayview"
+                android:layout_gravity="center"/>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <android.support.v7.widget.RecyclerView
+                  android:id="@+id/rv_image_list"
+                  android:layout_width="match_parent"
+                  android:layout_height="fill_parent"
+                  android:layout_gravity="center_vertical|left"
+                  android:layout_margin="@dimen/margin_5"
+
+                  />
+
+          </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+                <TextView
+                    android:id="@+id/tv_yes"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="Yes"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+
+                    android:padding="@dimen/margin_10"
+                    android:background="@drawable/recieve_loc_bg"
+                   />
+
+                <TextView
+                    android:id="@+id/tv_no"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:text="No"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                  android:layout_marginLeft="50dp"
+                    android:background="@drawable/recieve_loc_red_bg"
+                  />
+
+            </LinearLayout>
+        </LinearLayout>

@@ -3,8 +3,11 @@
     <color name="colorPrimary">#2c3e50</color>
     <color name="colorPrimaryDark">#2c3e50</color>
     <color name="colorAccent">#D81B60</color>
+  <!--  <color name="colorAccent">#FFEB3B</color>-->
     <color name="white">#FFF</color>
+
     <color name="darkblue">#2c3e50</color>
+
     <color name="lightblue">#2980b9</color>
     <color name="overlay">#00FFFFFF</color>
     <color name="black">#000</color>
@@ -15,6 +18,18 @@
     <color name="plan_1_color">#12000000</color>
     <color name="plan_2_color">#12000000</color>
     <color name="plan_3_color">#12000000</color>
+    <color name="img_bg">#979797</color>
+    <color name="green">#23cf01</color>
+    <color name="red">#e22607</color>
+
+    <color name="recieve_package_amount">#0D6620</color>
+    <color name="not_recieve_package_amount">#F11C03</color>
+
+    <item name="gray_holo_light" type="color">#ffd0d0d0</item>
+    <color name="appThemeColor_1">#2980b9</color>
+
+    <color name="rate_active">#FFEB3B</color>
+    <!--<color name="rate_deactive">#FFEB3B</color>-->
 
 
 </resources>

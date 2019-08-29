@@ -53,6 +53,7 @@
                         android:id="@+id/profileimages_id"
                         android:src="@drawable/ic_user" />
                     <LinearLayout
+                        android:id="@+id/ly_photo"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_alignParentRight="true"
@@ -68,7 +69,7 @@
                     </LinearLayout>
                 </RelativeLayout>
                 <TextView
-                    android:id="@+id/edit"
+                    android:id="@+id/tv_edit_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit"
@@ -81,7 +82,7 @@
                     android:drawablePadding="10dp"
                     android:paddingRight="15dp"/>
             </RelativeLayout>
-        <LinearLayout
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
@@ -119,12 +120,16 @@
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_company_nm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
                         android:textSize="15dp"
+                        android:background="@null"
+                         android:maxLength="@integer/register_field_max_len"
+                        android:textColor="@color/black"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -165,12 +170,16 @@
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_office_add"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
                         android:textSize="15dp"
+                        android:background="@null"
+                        android:maxLength="@integer/register_field_max_len"
+                        android:textColor="@color/black"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -212,12 +221,17 @@
                         android:textColor="@color/black"
                         android:textSize="15dp"
                         />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_office_contact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
                         android:textSize="15dp"
+                        android:maxLength="@integer/mobile_max_len"
+                        android:background="@null"
+                         android:inputType="phone"
+                        android:textColor="@color/black"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -258,12 +272,17 @@
                         android:layout_marginTop="9dp"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_area_of_business"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:background="@null"
+                        android:maxLength="@integer/register_field_max_len"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
             </LinearLayout>
             <View
@@ -302,12 +321,18 @@
                         android:layout_marginTop="9dp"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_person_nm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:background="@null"
+                        android:inputType="text"
+                        android:maxLength="@integer/register_field_max_len"
+                        android:textColor="@color/black"
+                        />
                 </LinearLayout>
             </LinearLayout>
             <View
@@ -347,12 +372,18 @@
                         android:layout_marginTop="9dp"
                         android:textColor="@color/black"
                         android:textSize="15dp" />
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_person_phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Test Demo"
                         android:layout_marginTop="9dp"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:background="@null"
+
+                        android:textColor="@color/black"
+                        />
+                   <!-- android:editable="false"-->
                 </LinearLayout>
                 <View
                     android:layout_width="match_parent"
@@ -361,8 +392,43 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginRight="10dp"
                    />
+
+
             </LinearLayout>
         </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                >
+
+            <View
+                android:id="@+id/vw_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/darkgray"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <Button
+                android:id="@+id/bt_update_profile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/get_started_button"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="10dp"
+                android:text="Update Profile"
+                android:textAllCaps="false"
+
+                android:textColor="@color/white" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

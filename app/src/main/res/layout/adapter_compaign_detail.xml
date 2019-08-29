@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp"
+    android:id="@+id/ly_main"
+  >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/edit_background"
+        >
+        <EditText
+            android:id="@+id/et_loction_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:hint="Compaign Location name"
+            android:background="@null"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textColor="@color/darkblue"
+            android:layout_toLeftOf="@+id/rl_add_location"
+
+            />
+        <RelativeLayout
+            android:id="@+id/rl_add_location"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/add"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <!--  <TextView
+              android:id="@+id/addclickbutton_id"
+              android:l50dpayout_width="match_parent"
+              android:layout_height="fill_parent"
+              android:drawableRight="@drawable/add"
+              android:text="Location for brand exposure"
+              android:imeOptions="actionNext"
+              android:gravity="center_vertical"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:textSize="19dp"
+              />-->
+
+    </RelativeLayout>
+   <!-- <TextView
+        android:id="@+id/tv_loc_nm"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/edit_background"
+        android:text="Location for brand exposure"
+        android:imeOptions="actionNext"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textSize="19dp"
+         />-->
+</LinearLayout>

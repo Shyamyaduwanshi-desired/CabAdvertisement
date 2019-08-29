@@ -2,8 +2,10 @@ package com.diss.cabadvertisement.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +19,10 @@ import com.diss.cabadvertisement.ui.model.SignupBean;
 import com.diss.cabadvertisement.ui.presenter.LoginPresenter;
 import com.diss.cabadvertisement.ui.presenter.SignupPresenter;
 import com.diss.cabadvertisement.ui.util.AppData;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.hbb20.CountryCodePicker;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener , SignupPresenter.SignUp{
@@ -132,7 +138,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             return;
         }
         else {
-            if(appdata.isNetworkConnected(this)){
+//            GetRegistration();
+
+            if(appdata.isNetworkConnected(RegistrationActivity.this)){
                 SignupBean bean=new SignupBean();
                 bean.setCompany_name(sCompanyNm);
                 bean.setCompany_ofice_address(sOfficAdd);
@@ -143,11 +151,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 bean.setConfirm_password(sConfirmPassword);
                 bean.setFull_name(sPersonNm);
                 bean.setMobile_no(("+"+countryCodeValue+sMobi));
-
                 presenter.SignUpCompany(bean);
             }else {
-                appdata.ShowNewAlert(this,"Please connect to internet");
+                appdata.ShowNewAlert(RegistrationActivity.this,"Please connect to internet");
             }
+
         }
     }
     @Override
@@ -192,5 +200,40 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void fail(String response) {
         appdata.ShowNewAlert(this,response);
+    }
+
+    public void GetRegistration()
+    {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+// Get the Instance ID token//
+                        String token = task.getResult().getToken();
+//                        String msg = getString(R.string.fcm_token, token);
+                        Log.d("", "shyam fcm token= "+token);
+
+//                        if(appdata.isNetworkConnected(RegistrationActivity.this)){
+//                            SignupBean bean=new SignupBean();
+//                            bean.setCompany_name(sCompanyNm);
+//                            bean.setCompany_ofice_address(sOfficAdd);
+//                            bean.setCompany_contact_no(sOfficContact);
+//                            bean.setCompany_area_of_business(sOfficArea);
+//                            bean.setEmail(sEmail);
+//                            bean.setPassword(sPassword);
+//                            bean.setConfirm_password(sConfirmPassword);
+//                            bean.setFull_name(sPersonNm);
+//                            bean.setMobile_no(("+"+countryCodeValue+sMobi));
+//                            presenter.SignUpCompany(bean,token);
+//                        }else {
+//                            appdata.ShowNewAlert(RegistrationActivity.this,"Please connect to internet");
+//                        }
+                    }
+                });
+
     }
 }

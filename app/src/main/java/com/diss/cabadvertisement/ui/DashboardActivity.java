@@ -1,7 +1,9 @@
 package com.diss.cabadvertisement.ui;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,8 +13,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,6 +27,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -31,11 +36,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.bumptech.glide.Glide;
 import com.diss.cabadvertisement.R;
+import com.diss.cabadvertisement.ui.presenter.SubscriptionPlanPresenter;
 import com.diss.cabadvertisement.ui.util.AppData;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 //import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -44,26 +52,33 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DashboardActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener, LocationListener ,OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
     AppData appdata;
     DrawerLayout drawer;
-    public GoogleMap Map;
-    LocationManager locationManager;
-    String latitude ;
-    String longitude ;
-    MapView mapView;
-    double lati = 22.72000155214488;;
-    double longi = 75.87855927462988;
+    double lati = 0;//22.71246
+    double longi = 0;//75.86491
     SupportMapFragment mapFragment;
     protected GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
+    private GoogleMap mMapSession;
+    Marker mCurrLocationMarker;
+    CircleImageView ivUsrPic;
+    TextView tvUsrNm,tvUsrPhoneNo;
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,11 +90,38 @@ public class DashboardActivity extends FragmentActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        NavigationView navi = (NavigationView) findViewById(R.id.nav_view);
+        View hView =  navi.getHeaderView(0);
+        tvUsrNm = hView.findViewById(R.id.navname);
+        tvUsrPhoneNo = hView.findViewById(R.id.navnumber);
+        ivUsrPic=hView.findViewById(R.id.iv_user_Pic);
+
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
+         mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
         buildGoogleApiClient();
+        GetRegistration();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setProrileData();
+    }
+    public void setProrileData()
+    {
+        if(!appdata.getProfilePic().equals("NA")) {
+            Glide.with(DashboardActivity.this)
+                    .load(appdata.getProfilePic())
+                    .placeholder(R.drawable.ic_user)
+                    .into(ivUsrPic);
+        }
+        tvUsrNm.setText(appdata.getUsername());
+        tvUsrPhoneNo.setText(appdata.getMobile());
     }
 
     @Override
@@ -101,11 +143,7 @@ public class DashboardActivity extends FragmentActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -132,11 +170,13 @@ public class DashboardActivity extends FragmentActivity
 
         } else if (id == R.id.nav_weekly) {
 
-            startActivity(new Intent(getApplicationContext(), WeeklyAnalysisActivity.class));
+            startActivity(new Intent(getApplicationContext(), ActWeeklyAnalysis.class));
+//            startActivity(new Intent(getApplicationContext(), WeeklyAnalysisActivity.class));
 
 
         } else if (id == R.id.nav_liveactivity) {
 
+            startActivity(new Intent(getApplicationContext(), LiveActivityMonitor.class));
 
         } else if (id == R.id.nav_help) {
 
@@ -148,10 +188,11 @@ public class DashboardActivity extends FragmentActivity
 
         } else if (id == R.id.nav_rate) {
 
-            startActivity(new Intent(getApplicationContext(), REviewActivity.class));
+            startActivity(new Intent(getApplicationContext(), RateActivity.class));
 
         } else if (id == R.id.nav_renew) {
 
+//            startActivity(new Intent(getApplicationContext(), SubscriptionPlanActivity.class));
             startActivity(new Intent(getApplicationContext(), REviewActivity.class));
 
         } else if (id == R.id.nav_logout) {
@@ -186,71 +227,6 @@ public class DashboardActivity extends FragmentActivity
     }
 //for location
 
-    public void getMapVeew ()
-    {
-
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap mMap) {
-                Map=mMap;
-
-//                StringRequest request = new StringRequest(URL1, new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try {
-//                            JSONObject jsonObj = new JSONObject(response);
-//                            JSONArray contacts = jsonObj.getJSONArray("REAL_ESTATE_APP");
-//                            for (int i = 0; i < contacts.length(); i++){
-//                                JSONObject c = contacts.getJSONObject(i);
-//                                String type_id = c.getString("type_id");
-//                                String property_map_latitude = c.getString("property_map_latitude");
-//                                String property_map_longitude = c.getString("property_map_longitude");
-//                                double lat = Double.parseDouble(property_map_latitude);
-//                                double lng = Double.parseDouble(property_map_longitude);
-//                                LatLng latLng = new LatLng(lat, lng);
-//                                String property_name = c.getString("property_name");
-//                                String property_address = c.getString("property_address");
-//                                String imageurl=c.getString("flag");
-//                                Bitmap bitmap=getMarkerBitmapFromView(imageurl);
-//                                Map.addMarker(new MarkerOptions()
-//                                        .position(latLng)
-//                                        .title(property_name)
-//                                        .snippet(property_address)
-//                                        .icon(BitmapDescriptorFactory.fromBitmap(bitmap)));
-//                                CameraPosition Liberty= CameraPosition.builder().target(latLng).zoom(9).bearing(0).tilt(45).build();
-//                                Map.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
-//
-//                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//
-//                }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//                RequestQueue queue = Volley.newRequestQueue(mview.getContext());
-//                queue.add(request);
-
-                LatLng latLng = new LatLng(lati, longi);
-                Map.addMarker(new MarkerOptions()
-                                        .position(latLng)
-                                        .title("Current location")
-                                        .snippet(""));
-                                        /*.icon(BitmapDescriptorFactory.fromBitmap(R.drawable.ic_address)));//R.drawable*/
-                                CameraPosition Liberty= CameraPosition.builder().target(latLng).zoom(9).bearing(0).tilt(45).build();
-                                Map.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
-                Map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//                CameraPosition Liberty= CameraPosition.builder().target(new LatLng(lati,longi)).zoom(16).bearing(0).tilt(45).build();
-//                Map.moveCamera(CameraUpdateFactory.newCameraPosition(Liberty));
-                Map.getUiSettings().setZoomControlsEnabled(true);
-            }
-        });
-    }
     @Override
     public void onLocationChanged(Location location) {
 
@@ -273,6 +249,27 @@ public class DashboardActivity extends FragmentActivity
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
+                mGoogleApiClient);
+        if (mLastLocation != null) {
+            lati = mLastLocation.getLatitude();
+            longi = mLastLocation.getLongitude();
+        }
+
+//        if(lati!=0.0||logiti!=0.0)
+//        {
+//            add= supportUtils.getCompleteAddressString(ActBookSession.this,lati,logiti);
+//            Log.e("","0000add= "+add);
+////            mLocationAddress.setText(add);
+////            ShowLine();
+//        }
+//        Toast.makeText(this, "currnet loat= "+lati+" logiti= "+logiti, Toast.LENGTH_SHORT).show();
+
+        myLocation();
 
     }
 
@@ -288,15 +285,63 @@ public class DashboardActivity extends FragmentActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        mMapSession = googleMap;
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        mMapSession.setMyLocationEnabled(true);
+//        myLocation();
+
 
     }
     private void buildGoogleApiClient() {
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .addConnectionCallbacks(this)
-//                .addOnConnectionFailedListener(this)
-//                .addApi(LocationServices.API)
-//                .build();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
 
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    public void myLocation()
+    {
+        LatLng latLng = new LatLng(lati, longi);
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title("Current Position");
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        mCurrLocationMarker = mMapSession.addMarker(markerOptions);
+
+        //move map camera
+        mMapSession.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+//        mMapSession.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,16f));
+//        mMapSession.getUiSettings().setZoomControlsEnabled(true);
+    }
     //for location
+
+    public void GetRegistration()
+    {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+// Get the Instance ID token//
+                        String token = task.getResult().getToken();
+//                        String msg = getString(R.string.fcm_token, token);
+                        Log.d("", "shyam fcm token= "+token);
+
+                    }
+                });
+
+    }
 }

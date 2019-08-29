@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.diss.cabadvertisement.R;
 
-public class WeeklyDetailsActivity extends AppCompatActivity {
+public class WeeklyAnalysisDetailsActivity extends AppCompatActivity {
 
     Button Campaignbutton;
     LinearLayout firstcircle;
@@ -34,7 +34,7 @@ public class WeeklyDetailsActivity extends AppCompatActivity {
         Campaignbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WeeklyDetailsActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(WeeklyAnalysisDetailsActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +43,6 @@ public class WeeklyDetailsActivity extends AppCompatActivity {
         firstcircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 showDialog();
             }
         });
@@ -51,7 +50,7 @@ public class WeeklyDetailsActivity extends AppCompatActivity {
     }
 
     private void showDialog() {
-        final Dialog dialog = new Dialog(WeeklyDetailsActivity.this);
+        final Dialog dialog = new Dialog(WeeklyAnalysisDetailsActivity.this);
         dialog.setContentView(R.layout.id_activity);
         TextView text1 = (TextView) dialog.findViewById(R.id.id_id);
         TextView text2 = (TextView) dialog.findViewById(R.id.locationcovered_id);
@@ -65,7 +64,7 @@ public class WeeklyDetailsActivity extends AppCompatActivity {
         DoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WeeklyDetailsActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(WeeklyAnalysisDetailsActivity.this, DashboardActivity.class);
                 startActivity(intent);
             }
         });

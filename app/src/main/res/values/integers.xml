@@ -1,3 +1,4 @@
 <resources>
     <integer name="register_field_max_len">30</integer>
+    <integer name="mobile_max_len">10</integer>
 </resources>

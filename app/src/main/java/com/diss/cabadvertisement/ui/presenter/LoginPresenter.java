@@ -50,7 +50,7 @@ public class LoginPresenter {
         void fail(String response);
     }
 
-   public void LoginUser(final String phone, final String password) {
+   public void LoginUser(final String phone, final String password, final String deviceToken) {//, final String deviceToken
        final ProgressDialog progress = new ProgressDialog(context);
        progress.setMessage("Please Wait..");
        progress.setCancelable(false);
@@ -59,6 +59,8 @@ public class LoginPresenter {
                .addBodyParameter("action", "login")
                .addBodyParameter("mobile_no", phone)
                .addBodyParameter("password", password)
+               .addBodyParameter("device_token", deviceToken)
+               .addBodyParameter("device_type", "android")
                .addHeaders("Username","admin")
                .addHeaders("Password","admin123")
                .setPriority(Priority.MEDIUM)
@@ -77,6 +79,16 @@ public class LoginPresenter {
                                appData.setUsername(reader.getJSONObject("body").getString("display_name"));
                                appData.setEmail(reader.getJSONObject("body").getString("user_email"));
                                appData.setUserStatus(reader.getJSONObject("body").getString("user_status"));
+                               appData.setMobile(reader.getJSONObject("body").getString("user_phone"));
+                               appData.setProfilePic(reader.getJSONObject("body").getString("user_pic_full"));
+
+                               appData.setCompanyNm(reader.getJSONObject("body").getString("company_name"));
+                               appData.setCompanyOfficeAddress(reader.getJSONObject("body").getString("company_office_address"));
+                               appData.setCompanyContactNo(reader.getJSONObject("body").getString("company_contact_no"));
+                               appData.setCompanyAreaOfBusiness(reader.getJSONObject("body").getString("company_area_of_business"));
+
+                               appData.setCurrentCampaignId("3");//dummy data
+
                                String userStatus=reader.getJSONObject("body").getString("user_status");
                                  String otp="";
 
@@ -247,7 +259,7 @@ public class LoginPresenter {
                 });
     }
 
-    public void VerifyOTP(final String userid) {
+    public void VerifyOTP(final String userid, final String deviceToken) {
         final ProgressDialog progress = new ProgressDialog(context);
         progress.setMessage("Please Wait..");
         progress.setCancelable(false);
@@ -255,6 +267,10 @@ public class LoginPresenter {
         AndroidNetworking.post(AppData.url)
                 .addBodyParameter("action", "otp_verify")
                 .addBodyParameter("user_id", userid)
+
+                .addBodyParameter("device_token", deviceToken)
+                .addBodyParameter("device_type", "android")
+
                 .addHeaders("Username","admin")
                 .addHeaders("Password","admin123")
                 .setPriority(Priority.MEDIUM)
@@ -289,6 +305,9 @@ public class LoginPresenter {
                     }
                 });
     }
+
+
+
 /*public void LoginVendor(final String phone, final String password) {
         final ProgressDialog progress = new ProgressDialog(context);
         progress.setMessage("Login Please Wait..");
