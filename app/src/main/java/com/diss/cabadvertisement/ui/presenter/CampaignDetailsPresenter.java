@@ -105,6 +105,7 @@ public class CampaignDetailsPresenter {
 
                                     list.add(bean);
                                 }
+//                                teate ing
 
                                 campaingData.success(list,"1","","","");
                             }else {
